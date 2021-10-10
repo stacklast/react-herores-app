@@ -14,7 +14,7 @@ import { SearchScreem } from '../components/search/SearchScreem';
 export const DashboardRoutes = () => {
     return (
         <>
-            <Navbar />
+            <Navbar/>
             <div className="container mt-2">
                 <Switch>
                     <Route exact path="/marvel" component={ MarvelScreen } />
