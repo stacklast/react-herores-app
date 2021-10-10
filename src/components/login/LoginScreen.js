@@ -1,9 +1,20 @@
-import React from 'react'
+import React, { useContext } from 'react'
+import { AuthContext } from '../../auth/AuthContext'
+import { types } from '../../types/types';
 
 export const LoginScreen = ({ history }) => {
 
+    const { dispatch } = useContext(AuthContext);
 
     const handleLogin =(click) =>{
+        
+        dispatch({
+            type: types.login,
+            payload:{
+                name: 'Edwin'
+            }
+        });
+
         history.replace('/');
     }
 
@@ -15,7 +26,7 @@ export const LoginScreen = ({ history }) => {
             className="btn btn-primary"
             onClick={handleLogin}
             >
-                Ingresar
+                Login
             </button>
         </div>
     )
