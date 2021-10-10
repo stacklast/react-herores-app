@@ -2,16 +2,22 @@ import React from 'react'
 import {HeroCard} from '../heroes/HeroCard'
 import {heroes} from '../../data/heroes'
 import {useForm} from '../../hooks/useForm';
+import { useLocation } from 'react-router';
 
 export const SearchScreem = () => {
 
+    const { location } = useLocation();
+    console.log(location);
     const heroesFiltered = heroes;
 
-    const [formValues, handleInputChange, reset] = useForm({searchText: ''});
+    const [formValues, handleInputChange] = useForm(
+        {searchText: ''}
+    );
     const {searchText} = formValues;
+    
     const handleSearch = (e) => {
         e.preventDefault();
-        console.log();
+        console.log(searchText);
     }
 
     return (
@@ -28,7 +34,7 @@ export const SearchScreem = () => {
                         <input type="text" placeholder="Find your hero" className="form-control" name="searchText"
                             value={searchText}
                             onChange={handleInputChange}
-                            autocomplete="off"/>
+                            autoComplete="off"/>
                         <button type="submit" className="btn m-1 btn-block btn-outline-primary">
                             Search
                         </button>
